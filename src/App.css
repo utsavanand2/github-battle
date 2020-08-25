@@ -1,38 +1,99 @@
 .App {
+  max-width: 1200px;;
+  margin: 0 auto;
+  padding: 50px;
+}
+
+ul {
+  padding: 0;
+}
+
+li {
+  list-style-type: none;
+}
+
+.flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.btn-clear {
+  border: none;
+  background: transparent;
+}
+
+.nav-link {
+  font-size: 18px;
+  font-weight: bold;
+  text-decoration: none;
+  color: inherit;
+}
+
+.grid {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.space-around {
+  justify-content: space-around;
+}
+
+.header-lg {
+  font-size: 35px;
+  font-weight: 300;
+  margin: 20px;
+}
+
+.avatar {
+  width: 150px;
+  height: 150px;
+  border-radius: 3px;
+  margin: 0 auto;
+  display: block;
+}
+
+.center-text {
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.link {
+  color: rgb(187, 46, 31);
+  text-decoration: none;
+  font-weight: bold;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.card-list {
+  margin: 20px 0;
+  font-size: 20px;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.card-list li {
   display: flex;
-  flex-direction: column;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  margin: 10px;
 }
 
-.App-link {
-  color: #61dafb;
+.card-list svg {
+  margin-right: 10px;;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.card-list a {
+  font-weight: 500;
+  color: inherit;
+}
+
+.bg-light {
+  background: rgba(0, 0, 0, 0.08);
+  border-radius: 20px;
+}
+
+.repo {
+  margin: 10px 0;
+  width: 250px;
+  padding: 20px;
+}
+
+.repo img {
+  margin-bottom: 8px;
 }
