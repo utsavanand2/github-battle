@@ -1,4 +1,4 @@
-FROM golang:1.13 as build
+FROM golang:1.14 as build
 
 WORKDIR /go/src/github.com/utsavanand2/popular-repos-server
 
@@ -6,7 +6,15 @@ COPY go.mod go.mod
 COPY go.sum go.sum
 COPY main.go main.go
 
-RUN CGO_ENABLED=0 GOOS=linux GOARCH=arm go build -o /usr/local/bin/popular-repos-server
+
+RUN if [ "$BUILDPLATFORM" = "linux/amd64" ]; then \
+        CGO_ENABLED=0 GOOS=linux GOARCH=amd64 go build -o /usr/local/bin/popular-repos-server; \
+    elif [ "$BUILDPLATFORM" = "linux/arm64" ]; then \
+        CGO_ENABLED=0 GOOS=linux GOARCH=arm64 go build -o /usr/local/bin/popular-repos-server; \
+    elif [ "$BUILDPLATFORM" = "linux/arm/v7" ]; then \
+        CGO_ENABLED=0 GOOS=linux GOARCH=arm go build -o /usr/local/bin/popular-repos-server; \
+    fi
+
 
 FROM alpine:3.12.0
 RUN apk add --force-refresh ca-certificates
